@@ -61,78 +61,78 @@ function display_acf_custom_posts() {
 			$post_phone = get_field('phone');
 
             $output .= '<div class="custom-post post-col et_pb_column et_pb_column_1_3">';
-            if (has_post_thumbnail()) {
-                $output .= '<div class="post-thumbnail">';
-                $output .= get_the_post_thumbnail(get_the_ID(), 'medium'); // 'medium' size ko use karte hue
-                $output .= '</div>';
-            }
-            $output .= '<a href="' . get_permalink() . '" class="view-profile" >View Profile</a>';
-            $output .= '<h2>' . get_the_title() . '</h2>';
+		        	 if (has_post_thumbnail()) {
+		                	$output .= '<div class="post-thumbnail">';
+		                		$output .= get_the_post_thumbnail(get_the_ID(), 'medium'); // 'medium' size ko use karte hue
+		                	$output .= '</div>';
+		           	 }
+	           		 $output .= '<a href="' . get_permalink() . '" class="view-profile" >View Profile</a>';
+	            		$output .= '<h2>' . get_the_title() . '</h2>';
             
-            // Display location
-			if ($post_locations) {
-				$output .= '<div class="location">';
-				$locations_count = count($post_locations);
-				$index = 0;
-				foreach ($post_locations as $post_location) {
-					$output .= '<span class="location">' . $post_location->post_title . '</span>';
-					if ($index < $locations_count - 1) {
-						$output .= ', '; // Add comma after each location except the last one
+            			// Display location
+				if ($post_locations) {
+					$output .= '<div class="location">';
+					$locations_count = count($post_locations);
+					$index = 0;
+					foreach ($post_locations as $post_location) {
+						$output .= '<span class="location">' . $post_location->post_title . '</span>';
+						if ($index < $locations_count - 1) {
+							$output .= ', '; // Add comma after each location except the last one
+						}
+						$index++;
 					}
-					$index++;
+					$output .= '</div>';
 				}
-				$output .= '</div>';
-			}
 
 
 
-			// Display specialties
-			if ($post_specialties) {
-				$output .= '<div class="specialties">';
-				$specialties_count = count($post_specialties);
-				$index = 0;
-				foreach ($post_specialties as $post_specialty) {
-					$output .= '<span class="specialty">' . $post_specialty . '</span>';
-					if ($index < $specialties_count - 1) {
-						$output .= ', '; // Add comma after each specialty except the last one
+				// Display specialties
+				if ($post_specialties) {
+					$output .= '<div class="specialties">';
+					$specialties_count = count($post_specialties);
+					$index = 0;
+					foreach ($post_specialties as $post_specialty) {
+						$output .= '<span class="specialty">' . $post_specialty . '</span>';
+						if ($index < $specialties_count - 1) {
+							$output .= ', '; // Add comma after each specialty except the last one
+						}
+						$index++;
 					}
-					$index++;
+					$output .= '</div>';
 				}
-				$output .= '</div>';
-			}
 
-			// Display address
-			if($post_address){
-				$output .= '<div class="post-address">';
-					$output .= '<span class="address">'. $post_address . '</span>';
-				$output .='</div>';
-			}
-
-			// Display directions
-			if($post_directions){
-				$output .= '<div class="directions">';
-					$output .= '<a href="'. $post_directions .'" class="direction">'. $post_directions . '</a>';
-				$output .='</div>';
-			}
-
-			// Display hours
-			if($post_hours){
-				$output .= '<div class="hours">';
-					$output .= '<span class="hour">'. $post_hours . '</span>';
-				$output .='</div>';
-			}
-
-			// Display phone
-			if($post_phone){
-				$output .='<div class="post-phone">';
-					$output .='<a href="tel:'.$post_phone.'">'. $post_phone .'</a>';
-				$output .='</div>';
-			}
+				// Display address
+				if($post_address){
+					$output .= '<div class="post-address">';
+						$output .= '<span class="address">'. $post_address . '</span>';
+					$output .='</div>';
+				}
+	
+				// Display directions
+				if($post_directions){
+					$output .= '<div class="directions">';
+						$output .= '<a href="'. $post_directions .'" class="direction">'. $post_directions . '</a>';
+					$output .='</div>';
+				}
+	
+				// Display hours
+				if($post_hours){
+					$output .= '<div class="hours">';
+						$output .= '<span class="hour">'. $post_hours . '</span>';
+					$output .='</div>';
+				}
+	
+				// Display phone
+				if($post_phone){
+					$output .='<div class="post-phone">';
+						$output .='<a href="tel:'.$post_phone.'">'. $post_phone .'</a>';
+					$output .='</div>';
+				}
 
            
 
 
-            $output .= '</div>';
+            		$output .= '</div>';
         }
 
         $output .= '</div>';
